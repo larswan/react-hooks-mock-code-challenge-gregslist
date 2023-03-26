@@ -1,0 +1,21 @@
+When the app starts, I can see all listings.
+// make a request for images and one time useEffect []
+
+
+I can "favorite" and "unfavorite" a listing on the frontend by clicking the star icon. This feature doesn't need backend persistence.
+// add listing to favorites
+state called favorites/set favorites onCLick reverse favorites
+
+
+I can remove a listing from the page by clicking the trash can icon. This change should be persisted in the backend.
+// click event feth request to remove..
+
+componentDidMount() {
+    // Simple DELETE request with fetch
+    fetch('https://jsonplaceholder.typicode.com/posts/1', { method: 'DELETE' })
+        .then(() => this.setState({ status: 'Delete successful' }));
+}
+
+
+I can search for listings by their name.
+// form event .map filter e.target.value === listing.name 
