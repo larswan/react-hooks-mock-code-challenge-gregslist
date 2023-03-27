@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import ListingCard from "./ListingCard";
+import ListingCard from "./ListingCard.jsx";
 
 function ListingsContainer() {
   const [posts, setPosts] = useState([])
@@ -8,30 +8,27 @@ function ListingsContainer() {
   useEffect(()=>{
       fetch("http://localhost:6001/listings")
       .then(req=>req.json())
-      .then(res => {setIsLoaded(true); setPosts(res); console.log(posts) })
+      .then(res => {setIsLoaded(true); setPosts(res);
+        //  console.log(res) 
+        })
       }, [])
 
   // return statements
   {
 
-    // return(
-    //   <div>
-    //     <ListingCard posts={posts} />
-    //   </div>
-    // )
-    if(!isLoaded) {
-      return (
-        <div>Loading...</div>
-      )
-    }
-    else{
-      setIsLoaded(false)
+    if(posts && isLoaded) {
       return (
         <main>
           <ul className="cards">
-            <ListingCard posts={posts} />
+            <ListingCard posts={posts} setPosts={setPosts} />
           </ul>
         </main>
+      )
+      
+    }
+    else{
+      return (
+        <div>Loading...</div>
       )
     }
   }
