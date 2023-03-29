@@ -13,7 +13,7 @@ function ListingsContainer({search}) {
     let tempPosts = posts.filter((x)=>{return x.description.includes(`${search}`)})
     console.log(tempPosts)
 
-    tempPosts.length>0 ? setDisplayPosts(tempPosts) : setDisplayPosts(posts)
+    tempPosts.length>0 ? setPosts(tempPosts) : setDisplayPosts(posts)
 
   },[search])
 
