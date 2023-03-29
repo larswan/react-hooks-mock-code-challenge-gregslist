@@ -2,9 +2,6 @@ import { useState, useEffect } from "react"
 
 function Card({post, setPosts, posts}){
 
-    // useEffect(()=>{
-    //     console.log(posts)
-    // },[])
 
     const [star, setStar] = useState(true)
     
@@ -13,9 +10,6 @@ function Card({post, setPosts, posts}){
     }
 
     const handleDelete= async (post)=>{
-        // console.log(posts)
-
-        // setPosts((prev)=>{console.log(prev); return prev})
 
         const deletePost = async (post) => {
             let req = await fetch(`http://localhost:6001/listings/${post.id}`,
